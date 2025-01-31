@@ -159,7 +159,7 @@ if selected == 'Parkinsons Prediction':
         PPE = st.text_input('PPE', '')
 
     if st.button('Parkinsons Prediction Test Result'):
-        if parkinsons_disease_model:
+        if parkinsons_model:
             if not all([MDVP_Fo_Hz, MDVP_Fhi_Hz, MDVP_Flo_Hz, MDVP_Jitter_percent, MDVP_Jitter_Abs, MDVP_RAP, MDVP_PPQ, 
                         Jitter_DDP, MDVP_Shimmer, MDVP_Shimmer_dB, Shimmer_APQ3, Shimmer_APQ5, MDVP_APQ, Shimmer_DDA, 
                         NHR, HNR, RPDE, DFA, spread1, spread2, D2, PPE]):
@@ -172,7 +172,7 @@ if selected == 'Parkinsons Prediction':
                                         MDVP_Shimmer, MDVP_Shimmer_dB, Shimmer_APQ3, Shimmer_APQ5, 
                                         MDVP_APQ, Shimmer_DDA, NHR, HNR, RPDE, DFA, 
                                         spread1, spread2, D2, PPE]))
-                    prediction = parkinsons_disease_model.predict([user_input])
+                    prediction = parkinsons_model.predict([user_input])
                     st.success('The person has Parkinsons disease.' if prediction[0] == 1 else 'The person does not have Parkinsons disease.')
                 except ValueError:
                     st.error("Please enter valid numerical values.")
