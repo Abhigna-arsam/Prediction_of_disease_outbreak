@@ -1,52 +1,3 @@
-# import os
-# import pickle
-# import streamlit as st
-# from streamlit_option_menu import option_menu
-
-# # Set Streamlit page configuration
-# st.set_page_config(page_title='Prediction of Disease Outbreaks', layout='wide')
-
-# # Load the trained model
-# diabetes_model = pickle.load(open(r"D:\Aicte\training_models\diabetes.model.sav", "rb"))
-
-# heart_disease_model = pickle.load(open(r"D:\Aicte\training_models\heart_disease_model.sav","rb"))
-
-# parkinsons_disease_model = pickle.load(open(r"D:\Aicte\training_models\parkinsons_model.sav","rb"))
-
-
-# with st.sidebar:
-#     selected = option_menu("prediction of disease outbreak system",['Diabetes prediction', 'Heart Disease Prediction', 'Parkinsons Prediction'],menu_icon = 'hospital-fill', icons=['activity', 'heart','person'], default_index=0)
-
-#     if selected=='Diabetes Prediction':
-#         st.title('Diabetes Prediction Using ML')
-#         col1,col2,col3 = st.columns(3)
-#         with col1:
-#             Pregnancies = st.text_input('Number of Pregnancies')
-#         with col2:
-#             glocose = st.text_input('Glucose level')
-#         with col3:
-#             BloodPressure = st.text_input('Blood Pressure Value')
-#         with col1:
-#             SkinThicness = st.text_input('SkinThickness value')
-#         with col2:
-#             Insulin = st.text_input('Insulin level')
-#         with col3:
-#             BMI = st.text_input('BMI Value')
-#         with col1:
-#             DiabetesPedigreeFunction = st.text_input('DiabetesPedigreeFunction value')
-#         with col2:
-#             Age = st.text_input('Age')
-# diab_diagnosis = ''
-# if st.button('diabetes Test result'):
-#     user_input = [Pregnancies,Glucose,BloodPressure,SkinThickness,Insulin,BMI,DiabetesPedigreeFunction,Age]
-#     user_input[float(x) for x in user_input]
-#     diab_prediction =diabetes_model.predict([user_input])
-#     if diab_prediction[0] == 1:
-#         diab_diagnosis='The person is diabetic'
-#     else:
-#         diab_diagnosis='The person is not diabetic'
-
-#     st.success(diab_diagnosis)
 
 import pickle
 import streamlit as st
@@ -56,26 +7,12 @@ from streamlit_option_menu import option_menu
 # Set Streamlit page configuration
 st.set_page_config(page_title='Prediction of Disease Outbreaks', layout='wide')
 
-# # Function to load model with error handling
-# def load_model(file_path):
-#     try:
-#         with open(file_path, "rb") as file:
-#             return pickle.load(file)
-#     except FileNotFoundError:
-#         st.error(f"Error: Model file '{file_path}' not found.")
-#         return None
-#     except Exception as e:
-#         st.error(f"Error loading model: {str(e)}")
-#         return None
-
-# Load the trained models
-
 # Load the trained model
-diabetes_model = pickle.load(open(r"D:\Aicte\training_models\diabetes.model.sav", "rb"))
+diabetes_model = pickle.load(open('diabetes_model.sav', 'rb'))
 
-heart_disease_model = pickle.load(open(r"D:\Aicte\training_models\heart_disease_model.sav","rb"))
+heart_disease_model = pickle.load(open('heart_disease_model.sav', 'rb'))
 
-parkinsons_disease_model = pickle.load(open(r"D:\Aicte\training_models\parkinsons_model.sav","rb"))
+parkinsons_model = pickle.load(open('parkinsons_model.sav', 'rb'))
 
 # Sidebar Menu
 with st.sidebar:
